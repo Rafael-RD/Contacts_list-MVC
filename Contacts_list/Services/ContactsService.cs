@@ -16,6 +16,7 @@ namespace Contacts_list.Services
 
         public async Task CreateContact(ContactModel contact)
         {
+            contact.Id = 0;
             await _context.Contacts.AddAsync(contact);
             await _context.SaveChangesAsync();
         }
