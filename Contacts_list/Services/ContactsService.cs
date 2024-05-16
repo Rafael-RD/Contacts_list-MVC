@@ -20,7 +20,10 @@ namespace Contacts_list.Services
             await _context.SaveChangesAsync();
         }
 
-
+        public async Task<IEnumerable<ContactModel>> GetContacts()
+        {
+            return await _context.Contacts.ToListAsync();
+        }
 
         public async Task<ContactModel?> GetContactById(int id)
         {
