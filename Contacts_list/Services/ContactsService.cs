@@ -34,11 +34,11 @@ namespace Contacts_list.Services
             return dbcontact;
         }
 
-        public async Task UpdateContact(ContactModel contact)
+        public async Task<ContactModel?> UpdateContact(int id, ContactModel contact)
         {
-            var dbContact = await _context.Contacts.FirstOrDefaultAsync(c => c.Id == contact.Id);
+            var dbContact = await _context.Contacts.FirstOrDefaultAsync(c => c.Id == id);
 
-            if (dbContact == null) throw new Exception("Contact not found");
+            if (dbContact == null) return null;
 
             dbContact.Name = contact.Name;
             dbContact.Company = contact.Company;
@@ -47,17 +47,20 @@ namespace Contacts_list.Services
             dbContact.Email = contact.Email;
 
             await _context.SaveChangesAsync();
+
+            return dbContact;
         }
 
-        public async Task DeleteContactById(int id)
+        public async Task<ContactModel?> DeleteContactById(int id)
         {
             var dbcontact = await _context.Contacts.FirstOrDefaultAsync(c => c.Id == id);
 
-            if (dbcontact == null) throw new Exception("Contact not found");
-
+            if (dbcontact == null) return null;
 
             _context.Contacts.Remove(dbcontact);
             await _context.SaveChangesAsync();
+
+            return dbcontact;
         }
     }
 }

@@ -7,7 +7,7 @@ namespace Contacts_list.Services.Interfaces
         Task CreateContact(ContactModel contact);
         Task<IEnumerable<ContactModel>> GetContacts();
         Task<ContactModel?> GetContactById(int id);
-        Task UpdateContact(ContactModel contact);
-        Task DeleteContactById(int id);
+        Task<ContactModel?> UpdateContact(int id, ContactModel contact);
+        Task<ContactModel?> DeleteContactById(int id);
     }
 }
