@@ -1,4 +1,6 @@
 using Contacts_list.Data;
+using Contacts_list.Services;
+using Contacts_list.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +14,8 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<DataContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddScoped<IContactsService, ContactsService>();
 
 var app = builder.Build();
 
