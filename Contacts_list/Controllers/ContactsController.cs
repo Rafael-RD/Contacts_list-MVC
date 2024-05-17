@@ -22,10 +22,10 @@ namespace Contacts_list.Controllers
             return Ok(await _contactsService.GetContacts());
         }
 
-        [HttpGet("id")]
+        [HttpGet("{id}")]
         public async Task<ActionResult<ContactModel>> GetContactById(int id)
         {
-            var contact = _contactsService.GetContactById(id);
+            var contact = await _contactsService.GetContactById(id);
 
             if (contact == null) return NotFound("Contact not found!");
 
@@ -40,7 +40,7 @@ namespace Contacts_list.Controllers
             return Ok("Contact created!");
         }
 
-        [HttpPut("id")]
+        [HttpPut("{id}")]
         public async Task<IActionResult> UpdateContact(int id, ContactModel contact)
         {
             var updatedContact = await _contactsService.UpdateContact(id, contact);
@@ -50,7 +50,7 @@ namespace Contacts_list.Controllers
             return Ok("Contact updated!");
         }
 
-        [HttpDelete("id")]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteContact(int id)
         {
             var deletedContact = await _contactsService.DeleteContactById(id);
