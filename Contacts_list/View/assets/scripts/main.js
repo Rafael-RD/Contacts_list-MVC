@@ -155,6 +155,7 @@ function renderContacts(filteredContacts = contacts) {
     `;
   } else if (filteredContacts.length > 0) {
     tableBody.innerHTML = ""
+    filteredContacts.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
     filteredContacts.forEach(contact => {
       switch (contact.email.length) {
         case 0:
