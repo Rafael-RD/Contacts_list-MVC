@@ -1,15 +1,71 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/styles/reset.css">
     <link rel="stylesheet" href="./assets/styles/style.css">
-    <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
-    <script type="module" src="./assets/scripts/main.js" defer></script>
     <title>Contacts List</title>
 </head>
+
 <body>
-    
+    <header>
+        <h1>Contacts List</h1>
+    </header>
+    <main>
+        <div class="input-button">
+            <input type="text" name="search" id="search" placeholder="filter" oninput="filterChangeHandler(event)">
+            <button id="add-contact" onclick="createContact()"><ion-icon name="add-outline"></ion-icon></button>
+        </div>
+        <section>
+            <table id="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Company</th>
+                        <th scope="col">Business Phone</th>
+                        <th scope="col">Private Phone</th>
+                        <th scope="col">Email</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                    <tr>
+                        <th colspan="10">Fetching data...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <div class="overlay hidden">
+            <form class="contact-form" onsubmit="formSubmitHandler(event)">
+                <div class="title-actions">
+                    <h2>Contact</h2>
+                    <div class="actions">
+                        <button type="button" class="edit-contact"><ion-icon name="create"></ion-icon></button>
+                        <button type="button" class="delete-contact"><ion-icon name="trash-sharp"></ion-icon></button>
+                    </div>
+                </div>
+                <label for="name">Name</label>
+                <input type="text" id="name" required>
+                <label for="company">Company</label>
+                <input type="text" id="company">
+                <label for="businessPhone">Business Phone</label>
+                <input type="tel" id="businessPhone">
+                <label for="privatePhone">Private Phone</label>
+                <input type="tel" id="privatePhone">
+                <label>Emails</label>
+                <div class="email-inputs">
+                </div>
+                <button type="button" class="add-email-btn" onclick="addEmailField()"><ion-icon
+                        name="add-outline"></ion-icon></button>
+                <button class="save-contact">Save</button>
+            </form>
+        </div>
+    </main>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./assets/scripts/main.js"></script>
 </body>
+
 </html>

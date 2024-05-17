@@ -1,2 +1,190 @@
-﻿body {
+﻿@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+* {
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  background-color: grey;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  height: 60px;
+  border-bottom: 1px solid black;
+  box-shadow: 0px 1px 8px black;
+  font-size: 30px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.input-button {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 500px;
+  height: 40px;
+  gap: 5px;
+  /* background-color: aqua; */
+}
+
+.input-button>input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  font-size: 20px;
+  padding: 0 10px;
+  box-shadow: 0 0 3px black;
+}
+
+.input-button>input::placeholder {
+  text-align: center;
+}
+
+.input-button>button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  font-size: 30px;
+  box-shadow: 0 0 3px black;
+}
+
+main>section {
+  display: flex;
+  justify-content: center;
+  min-height: 10px;
+  width: 100%;
+}
+
+#table {
+  background-color: rgb(241, 241, 241);
+  width: 1000px;
+  font-size: 20px;
+  text-align: center;
+  border-collapse: collapse;
+  border: 2px solid rgb(140 140 140);
+  padding: 10px;
+  box-shadow: 0 0 2px black;
+}
+
+#table-body tr:nth-child(odd) {
+  background-color: rgb(255, 255, 255);
+}
+
+#table th,
+#table td {
+  border: 1px solid rgb(160 160 160);
+  padding: 8px 10px;
+}
+
+#table th {
+  font-weight: 500;
+}
+
+#table-body>tr {
+  cursor: pointer;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.66);
+  backdrop-filter: blur(2px);
+}
+
+.contact-form {
+  background-color: rgb(255, 255, 255);
+  width: 50%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px black;
+}
+
+.contact-form>.title-actions {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-form>.title-actions>h2 {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.contact-form>.title-actions>.actions {
+  position: absolute;
+  right: 0;
+  display: flex;
+  gap: 10px;
+}
+
+.contact-form input {
+  height: 40px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  font-size: 20px;
+  padding: 0 10px;
+  box-shadow: 0 0 3px black;
+}
+
+.email-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.contact-form button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  font-size: 20px;
+  box-shadow: 0 0 3px black;
+}
+
+.contact-form button:disabled {
+  background-color: rgb(200, 200, 200);
+}
+
+
+.hidden {
+  display: none !important;
 }
